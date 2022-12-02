@@ -1,13 +1,30 @@
 declare namespace Growatt {
+  interface AuthResponse {
+    /**
+     * Código de resultado da operação
+     */
+    result: number;
+    /**
+     *  Messagem de resposta da operação
+     */
+    msg: string;
 
-    interface AuthResponse {
-        result: number;
-        msg: string;
-        obj: string;
-    }
+    /**
+     * Token de Autenticação
+     */
+    obj: string;
+  }
 
-    interface UpdateOSSResponse {
-        result: number;
-        msg: string;       
-    }
+  interface UpdateOSSResponse {
+    /**
+     *  Messagem de resposta da operação
+     */
+
+    result: number;
+
+    /**
+     *  Messagem de resposta da operação
+     */
+    msg: string;
+  }
 }

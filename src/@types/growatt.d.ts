@@ -5,7 +5,7 @@ declare namespace Growatt {
      */
     result: number;
     /**
-     *  Messagem de resposta da operação
+     *  Mensagem de resposta da operação
      */
     msg: string;
 
@@ -17,13 +17,13 @@ declare namespace Growatt {
 
   interface UpdateOSSResponse {
     /**
-     *  Messagem de resposta da operação
+     *  Mensagem de resposta da operação
      */
 
     result: number;
 
     /**
-     *  Messagem de resposta da operação
+     *  Mensagem de resposta da operação
      */
     msg: string;
   }

@@ -2,7 +2,7 @@ import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { lastValueFrom } from 'rxjs';
 import { IGrowatt } from '../interfaces/igrowatt';
-import { GrowattConstant } from '../../constants/growatt.constat';
+import { GrowattConstant } from '../../constants/growatt.constant';
 import * as moment from 'moment';
 import { config } from 'dotenv';
 import { HttpResponseException } from 'src/core/http/HttpException';

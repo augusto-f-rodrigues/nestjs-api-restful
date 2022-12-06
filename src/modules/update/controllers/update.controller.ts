@@ -27,7 +27,7 @@ export class UpdateController {
   @HttpCode(200)
   @ApiTags('Update')
   @Post('v2')
-  async updateOSSv2(@Body('id') id: string) {
+  async updateOSSv2(@Body() id: string) {
     return await this.updateV2Service.execute(id);
   }
 }

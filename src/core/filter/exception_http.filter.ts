@@ -48,15 +48,15 @@ export class ExceptionFilterHttp implements ExceptionFilter {
     if (exception instanceof HttpResponseException) {
       const resolver: Core.Error = exception as any;
 
-      const status = resolver.response.status;
+      const status = resolver?.response?.status;
       const body = {
         statusCode: status,
-        data: resolver.response.data,
-        error: resolver.response?.statusText,
+        data: resolver?.response?.data,
+        error: resolver?.response?.statusText,
       };
-      console.log(resolver.response.data);
+      console.log(resolver?.response?.data);
       if (
-        String(resolver.response.headers['content-type']).match(
+        String(resolver?.response?.headers['content-type']).match(
           new RegExp('html'),
         )
       ) {

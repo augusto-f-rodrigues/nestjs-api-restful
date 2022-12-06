@@ -16,7 +16,7 @@ export class HttpMovideskProvider {
   async getTicket(id: string): Promise<Movidesk.TicketResponse> {
     try {
       const { data } = await lastValueFrom<{ data: Movidesk.TicketResponse }>(
-        this.httpService.post(
+        this.httpService.get(
           this.base_url +
             MovideskConstant.TICKETS +
             `?token=${this.token}` +

@@ -2,6 +2,7 @@ import { HttpModule } from '@nestjs/axios';
 import { Module, Global } from '@nestjs/common';
 import { HttpGrowattProvider } from './providers/http/http.growatt.provider';
 import { HttpMovideskProvider } from './providers/http/http.movidesk.provider';
+import { TicketUtil } from './utils/implementations/ticket.util';
 
 @Global()
 @Module({
@@ -13,8 +14,12 @@ import { HttpMovideskProvider } from './providers/http/http.movidesk.provider';
     },
     {
       provide: 'Movidesk',
-      useClass: HttpMovideskProvider
-    }
+      useClass: HttpMovideskProvider,
+    },
+    {
+      provide: 'Ticket',
+      useClass: TicketUtil,
+    },
   ],
   exports: [
     {
@@ -23,8 +28,12 @@ import { HttpMovideskProvider } from './providers/http/http.movidesk.provider';
     },
     {
       provide: 'Movidesk',
-      useClass: HttpMovideskProvider
-    }
+      useClass: HttpMovideskProvider,
+    },
+    {
+      provide: 'Ticket',
+      useClass: TicketUtil,
+    },
   ],
 })
 export class SharedModule {}

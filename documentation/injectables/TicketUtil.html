@@ -40,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >AppService</li>
+  <li >TicketUtil</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app.service.ts</code>
+            <code>src/modules/shared/utils/implementations/ticket.util.ts</code>
         </p>
 
 
@@ -69,6 +69,21 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#logger" >logger</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -79,7 +94,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#getHello" >getHello</a>
+                                <a href="#findFields" >findFields</a>
                             </li>
                         </ul>
                     </td>
@@ -103,24 +118,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getHello"></a>
+                    <a name="findFields"></a>
                     <span class="name">
-                        <span ><b>getHello</b></span>
-                        <a href="#getHello"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>findFields</b></span>
+                        <a href="#findFields"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getHello()</code>
+<code>findFields(customFieldValues: Movidesk.CustomFieldValue[])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="5"
-                            class="link-to-prism">src/app.service.ts:5</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="8"
+                            class="link-to-prism">src/modules/shared/utils/implementations/ticket.util.ts:8</a></div>
                 </td>
             </tr>
 
@@ -129,11 +144,75 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>customFieldValues</td>
+                                    <td>
+                                            <code>Movidesk.CustomFieldValue[]</code>
+                                    </td>
 
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Ticket.Return</code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
+        </tbody>
+    </table>
+</section>
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logger"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>logger</b></span>
+                        <a href="#logger"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Logger(TicketUtil.name)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/modules/shared/utils/implementations/ticket.util.ts:6</a></div>
+                        </td>
+                    </tr>
+
+
         </tbody>
     </table>
 </section>
@@ -142,12 +221,48 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Logger } from &#x27;@nestjs/common&#x27;;
+import { ITicketUtil } from &#x27;../interfaces/iticket.util&#x27;;
 
 @Injectable()
-export class AppService {
-  getHello(): string {
-    return &#x27;AnyGrid - UpdateOSS&#x27;;
+export class TicketUtil implements ITicketUtil {
+  protected logger &#x3D; new Logger(TicketUtil.name);
+
+  findFields(customFieldValues: Movidesk.CustomFieldValue[]): Ticket.Return {
+    let obj: object &#x3D; {};
+    let fieldFound: object &#x3D; [];
+    const fieldsToBeFound &#x3D; [
+      { id: 92408, value: &#x27;snDamaged&#x27; },
+      { id: 103454, value: &#x27;snFixedAnygrid&#x27; },
+      { id: 122405, value: &#x27;snFixedTha&#x27; },
+      { id: 116301, value: &#x27;dateIngressIntoStock&#x27; },
+    ];
+
+    this.logger.debug(&#x27;Custom field values&#x27;, customFieldValues);
+
+    customFieldValues.forEach((element) &#x3D;&gt; {
+      fieldsToBeFound.forEach((item) &#x3D;&gt; {
+        if (element.customFieldId &#x3D;&#x3D;&#x3D; item.id) {
+          //CHECKING IF THE SIMPLE TEXT FIELDS HAS CONTENT
+          if (element?.value !&#x3D; null) {
+            fieldFound &#x3D; { [item.value]: element.value };
+          }
+          //CHECKING IF THE CHOICE FIELDS HAS CONTENT
+          else if (element?.items[0]?.customFieldItem) {
+            fieldFound &#x3D; { [item.value]: element.items[0].customFieldItem };
+          }
+          //IF VALUE IS NULL ASSIGN EMPTY TO THE PROPERTY
+          else if (
+            element?.value &#x3D;&#x3D;&#x3D; null &amp;&amp;
+            !element?.items[0]?.customFieldItem
+          ) {
+            fieldFound &#x3D; { [item.value]: &#x27;&#x27; };
+          }
+          obj &#x3D; { ...obj, ...fieldFound };
+        }
+      });
+    });
+    return obj as Ticket.Return;
   }
 }
 </code></pre>
@@ -193,7 +308,7 @@ export class AppService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'AppService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'TicketUtil.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

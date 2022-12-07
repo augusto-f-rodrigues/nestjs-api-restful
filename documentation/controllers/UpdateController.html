@@ -87,6 +87,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#updateOSS" >updateOSS</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateOSSv2" >updateOSSv2</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -127,14 +131,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@HttpCode(200)<br />@Post()<br /></code>
+                    <code>@Version(&#x27;1&#x27;)<br />@HttpCode(200)<br />@ApiTags(&#x27;Update&#x27;)<br />@Post()<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">src/modules/update/controllers/update.controller.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/modules/update/controllers/update.controller.ts:30</a></div>
                 </td>
             </tr>
 
@@ -184,28 +188,127 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateOSSv2"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>updateOSSv2</b></span>
+                        <a href="#updateOSSv2"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateOSSv2(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Version(&#x27;2&#x27;)<br />@HttpCode(200)<br />@ApiTags(&#x27;Update&#x27;)<br />@Post()<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/modules/update/controllers/update.controller.ts:38</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Post, Body, HttpCode } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Controller,
+  Post,
+  Body,
+  HttpCode,
+  Param,
+  Version,
+} from &#x27;@nestjs/common&#x27;;
+import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { UpdateOSSDTO } from &#x27;../dtos/update_oss.dto&#x27;;
 import { UpdateOSSService } from &#x27;../services/update_oss.service&#x27;;
+import { UpdateV2Service } from &#x27;../services/update_v2.service&#x27;;
 
 @Controller(&#x27;update&#x27;)
 export class UpdateController {
-  constructor(private readonly updateOSSService: UpdateOSSService) {}
+  constructor(
+    private readonly updateOSSService: UpdateOSSService,
+    private readonly updateV2Service: UpdateV2Service,
+  ) {}
 
   /**
    * **Rota de Atualização do Update OSS**
-   * @param data 
-   * @returns 
+   * @param data
+   * @returns
    */
-
+  @Version(&#x27;1&#x27;)
   @HttpCode(200)
+  @ApiTags(&#x27;Update&#x27;)
   @Post()
   async updateOSS(@Body() data: UpdateOSSDTO) {
     return await this.updateOSSService.execute(data);
+  }
+
+  @Version(&#x27;2&#x27;)
+  @HttpCode(200)
+  @ApiTags(&#x27;Update&#x27;)
+  @Post()
+  async updateOSSv2(@Body() id: string) {
+    return await this.updateV2Service.execute(id);
   }
 }
 </code></pre>

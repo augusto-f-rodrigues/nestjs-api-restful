@@ -3,12 +3,14 @@ import {
   ExceptionFilter,
   ArgumentsHost,
   BadRequestException,
+  Logger,
 } from '@nestjs/common';
 import { AbstractHttpAdapter, HttpAdapterHost } from '@nestjs/core';
 import { HttpResponseException } from '../http/HttpException';
 
 @Catch()
 export class ExceptionFilterHttp implements ExceptionFilter {
+  protected logger = new Logger(ExceptionFilterHttp.name);
   private httpAdapter: AbstractHttpAdapter;
 
   constructor(private readonly adapterHost: HttpAdapterHost) {
@@ -46,6 +48,7 @@ export class ExceptionFilterHttp implements ExceptionFilter {
     }
 
     if (exception instanceof HttpResponseException) {
+      this.logger.error('exception', exception);
       const resolver: Core.Error = exception as any;
 
       const status = resolver?.response?.status;

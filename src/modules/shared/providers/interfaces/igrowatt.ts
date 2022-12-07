@@ -1,19 +1,19 @@
 export interface IGrowatt {
-  /** 
-    * 
-    * **Método de Autenticação**
-    *  
-    * Obter porta de token
-    * 
-    * @example  
-    * {
-    *  "result":0, // 0 indica obter resultado com sucesso
-    *   "msg":"The token will expire after 15 minutes!",
-    *   "obj":"fjj39oa47ir3669vh8m54rpk49lf55ll"
-    * }
-    * @returns Está função tem como retorno no parâmetro
-    * de Obj o token de autenticação.
-    */
+  /**
+   *
+   * **Método de Autenticação**
+   *
+   * Obter porta de token
+   *
+   * @example
+   * {
+   *  "result":0, // 0 indica obter resultado com sucesso
+   *   "msg":"The token will expire after 15 minutes!",
+   *   "obj":"fjj39oa47ir3669vh8m54rpk49lf55ll"
+   * }
+   * @returns Está função tem como retorno no parâmetro
+   * de Obj o token de autenticação.
+   */
 
   authenticate(): Promise<Growatt.AuthResponse>;
 
@@ -27,7 +27,7 @@ export interface IGrowatt {
    * @param time - Data de substituição
    *
    * @returns Está função temo como retorno o resultado da operação.
-   * @example 
+   * @example
    * {
    * "result":0,
    * "msg":"换机成功!"

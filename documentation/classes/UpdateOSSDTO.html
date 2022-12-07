@@ -132,13 +132,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsString()<br />@IsNotEmpty()<br />
+                            @ApiProperty()<br />@IsString()<br />@IsNotEmpty()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/modules/update/dtos/update_oss.dto.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/modules/update/dtos/update_oss.dto.ts:8</a></div>
                         </td>
                     </tr>
 
@@ -167,13 +167,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsString()<br />@IsNotEmpty()<br />
+                            @ApiProperty()<br />@IsString()<br />@IsNotEmpty()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/modules/update/dtos/update_oss.dto.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/modules/update/dtos/update_oss.dto.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -202,13 +202,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsDateString()<br />@IsNotEmpty()<br />
+                            @ApiProperty()<br />@IsDateString()<br />@IsNotEmpty()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/modules/update/dtos/update_oss.dto.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/modules/update/dtos/update_oss.dto.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -227,17 +227,21 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsDateString, IsNotEmpty, IsString } from &#x27;class-validator&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
+import { IsDateString, IsNotEmpty, IsString } from &#x27;class-validator&#x27;;
 
 export class UpdateOSSDTO {
+  @ApiProperty()
   @IsString()
   @IsNotEmpty()
   newSerialNumber: string;
 
+  @ApiProperty()
   @IsString()
   @IsNotEmpty()
   oldSerialNumber: string;
 
+  @ApiProperty()
   @IsDateString()
   @IsNotEmpty()
   time: string;

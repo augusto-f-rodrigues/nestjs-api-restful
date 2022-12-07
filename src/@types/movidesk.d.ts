@@ -1,5 +1,4 @@
 declare namespace Movidesk {
-  
   interface TicketResponse {
     id: number;
     protocol: string;
@@ -51,6 +50,7 @@ declare namespace Movidesk {
     slaRealResponseDate: string;
     clients: Client[];
     actions: Action[];
+    customFieldValues: CustomFieldValue[];
   }
 
   interface Owner {

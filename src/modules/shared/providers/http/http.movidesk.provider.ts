@@ -64,19 +64,21 @@ export class HttpMovideskProvider {
     id: string,
   ) {
     try {
-      const response = await lastValueFrom(
+      const { data } = await lastValueFrom<{data : void}>(
         this.httpService.patch(
           this.base_url +
             MovideskConstant.TICKETS +
             `?token=${this.token}` +
             `&id=${id}`,
           { customFieldValues: customFieldValues },
+          {
+            headers: { Accept: 'application/json' },
+          },
         ),
       );
-      this.logger.debug('Update Ticket Response:', response);
-      return response;
+      return data;
     } catch (error) {
-      this.logger.error(error)
+      this.logger.error(error);
       throw new HttpResponseException(error);
     }
   }

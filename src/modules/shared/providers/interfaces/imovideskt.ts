@@ -16,11 +16,11 @@ export interface IMovidesk {
 
   /**
    * Função que atualiza/insere os dados no ticket do movidesk
-   * 
+   *
    * @param customFieldValues Campos que serão inseridos no movidesk
-   * 
+   *
    * @param id Identificador do ticket
-   * 
+   *
    * @returns Resposta de sucesso caso consigo dar update no movidesk
    */
   updateTicket(customFieldValues: Movidesk.CustomFieldValue[], id: string);

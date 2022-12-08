@@ -1,3 +1,3 @@
 export enum MovideskConstant {
-  TICKETS = '/v1/tickets'
+  TICKETS = '/v1/tickets',
 }

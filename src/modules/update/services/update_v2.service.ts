@@ -72,9 +72,9 @@ export class UpdateV2Service {
       line: 1,
       value: msg,
       items: [],
-    }
+    };
 
-    customFieldValues.push(message)
+    customFieldValues.push(message);
 
     return await this.movideskProvider.updateTicket(customFieldValues, id);
   }

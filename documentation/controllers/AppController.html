@@ -60,6 +60,13 @@
 
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Controller do App</p>
+
+            </p>
 
 
 
@@ -124,17 +131,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="11"
-                            class="link-to-prism">src/app.controller.ts:11</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app.controller.ts:23</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Rota get main para exibir uma mensagem na tela</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Uma string</p>
 
                     </div>
                 </td>
@@ -149,10 +164,22 @@
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { AppService } from &#x27;./app.service&#x27;;
 
+/**
+ * Controller do App
+ */
 @Controller()
 export class AppController {
+  /**
+   * @param appService - Importando serviços do App
+   */
   constructor(private readonly appService: AppService) {}
 
+  /**
+   * Rota get main para exibir uma mensagem na tela
+   * @decorator &#x60;@ApiTags(&#x27;Main&#x27;)&#x60;
+   * @decorator &#x60;@Get()&#x60;
+   * @returns Uma string
+   */
   @ApiTags(&#x27;Main&#x27;)
   @Get()
   getHello(): string {

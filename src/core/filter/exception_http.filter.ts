@@ -8,15 +8,35 @@ import {
 import { AbstractHttpAdapter, HttpAdapterHost } from '@nestjs/core';
 import { HttpResponseException } from '../http/HttpException';
 
+/**
+ * Decorator que marca que a classe será um filtro de exceções
+ * @decorator `@Catch()`
+ */
 @Catch()
 export class ExceptionFilterHttp implements ExceptionFilter {
+  /**
+   * Instanciando um logger
+   */
   protected logger = new Logger(ExceptionFilterHttp.name);
+  /**
+   * Instanciando uma classe com métodos HTTP
+   */
   private httpAdapter: AbstractHttpAdapter;
 
+  /**
+   * Construtor que busca os serviços providos da HttpAdapterHost
+   * @param adapterHost define como um objeto HttpAdapterHost que provém métodos get e set do HttpAdapter
+   */
   constructor(private readonly adapterHost: HttpAdapterHost) {
     this.httpAdapter = adapterHost.httpAdapter;
   }
 
+  /**
+   * Função de tratamento de exceções
+   * @param exception Parâmetro vindo do decorator '@Catch' para definir as exceções
+   * @param host Provém métodos HTTP para verificação dos argumentos
+   * @returns
+   */
   catch(exception: any, host: ArgumentsHost) {
     const contextHttp = host.switchToHttp();
     const response = contextHttp.getResponse();

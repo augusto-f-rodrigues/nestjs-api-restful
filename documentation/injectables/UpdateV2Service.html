@@ -62,6 +62,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Provedor de serviços do updateOSS V2</p>
+
+            </p>
 
 
 
@@ -120,12 +127,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/modules/update/services/update_v2.service.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/modules/update/services/update_v2.service.ts:15</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Construtor que busca os serviços que serão necessários</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -134,6 +143,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -148,6 +158,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Serviços do provider do Movidesk</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>growattProvider</td>
@@ -160,6 +176,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Serviços do provider da Growatt</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>ticketUtil</td>
@@ -172,6 +194,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Função do ticket vinda do Utils</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -209,14 +237,19 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">src/modules/update/services/update_v2.service.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/modules/update/services/update_v2.service.ts:51</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Método assíncrono para update da OSS</p>
+<div><pre class="line-numbers"><code class="language-html">{
+result:0,
+msg:换机成功!
+}</code></pre></div></div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -245,13 +278,21 @@
                         </table>
                     </div>
                     <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">{
+result:0,
+msg:换机成功!
+}</code></pre>
+                        </div>
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>Um objeto de resposta da API chinesa</p>
+
                     </div>
                 </td>
             </tr>
@@ -282,10 +323,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/modules/update/services/update_v2.service.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/modules/update/services/update_v2.service.ts:15</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Instanciando a classe Logger</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -300,28 +347,80 @@ import { IGrowatt } from &#x27;src/modules/shared/providers/interfaces/igrowatt&
 import { IMovidesk } from &#x27;src/modules/shared/providers/interfaces/imovideskt&#x27;;
 import { ITicketUtil } from &#x27;src/modules/shared/utils/interfaces/iticket.util&#x27;;
 
+/**
+ * Provedor de serviços do updateOSS V2
+ * @decorator &#x60;@IInjectable()&#x60;
+ */
 @Injectable()
 export class UpdateV2Service {
+  /**
+   * Instanciando a classe Logger
+   */
   protected logger &#x3D; new Logger(UpdateV2Service.name);
 
+  /**
+   * Construtor que busca os serviços que serão necessários
+   *
+   * @param movideskProvider - Serviços do provider do Movidesk
+   * @param growattProvider - Serviços do provider da Growatt
+   * @param ticketUtil - Função do ticket vinda do Utils
+   */
   constructor(
+    /**
+     * @decorator &#x60;@Inject(&#x27;Movidesk&#x27;)&#x60;
+     */
     @Inject(&#x27;Movidesk&#x27;) private readonly movideskProvider: IMovidesk,
+    /**
+     * @decorator &#x60;@Inject(&#x27;Growatt&#x27;)&#x60;
+     */
     @Inject(&#x27;Growatt&#x27;)
     private readonly growattProvider: IGrowatt,
+    /**
+     * @decorator &#x60;@Inject(&#x27;Ticket&#x27;)&#x60;
+     */
     @Inject(&#x27;Ticket&#x27;) private readonly ticketUtil: ITicketUtil,
   ) {}
 
+  /**
+   * Método assíncrono para update da OSS
+   * @param id - Identificador do ticket
+   * @returns Um objeto de resposta da API chinesa
+   * @example
+   * {
+   * result:0,
+   * msg:换机成功!
+   * }
+   * @remark Obtenha o código de falha de retorno na descrição da falha na página inicial
+   */
   async execute({ id }: any) {
     const { customFieldValues } &#x3D; await this.movideskProvider.getTicket(id);
 
     const { snDamaged, snFixedAnygrid, dateIngressIntoStock } &#x3D;
       this.ticketUtil.findFields(customFieldValues);
 
-    return await this.growattProvider.updateOSS(
+    this.logger.debug(&#x27;Request&#x27;, {
+      snDamaged,
+      snFixedAnygrid,
+      dateIngressIntoStock,
+    });
+
+    const { result, msg } &#x3D; await this.growattProvider.updateOSS(
       snDamaged,
       snFixedAnygrid,
       dateIngressIntoStock,
     );
+
+    const message: Movidesk.CustomFieldValue &#x3D; {
+      customFieldId: 127041,
+      customFieldRuleId: 63615,
+      line: 1,
+      value: msg,
+      items: [],
+    }
+
+    customFieldValues.push(message)
+
+    return await this.movideskProvider.updateTicket(customFieldValues, id);
   }
 }
 </code></pre>

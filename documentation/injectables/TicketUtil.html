@@ -62,6 +62,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Provedor de serviços para o Ticket</p>
+
+            </p>
 
 
 
@@ -134,14 +141,19 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">src/modules/shared/utils/implementations/ticket.util.ts:8</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/modules/shared/utils/implementations/ticket.util.ts:26</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><div><pre class="line-numbers"><code class="language-html">{
+ &quot;snFixedAnygrid&quot;: &quot;EOAC909003&quot;,
+ &quot;snDamaged&quot;: &quot;YIDAA42003&quot;,
+ &quot;dateIngressIntoStock&quot;: &quot;2022-12-08T12:59:48.203Z&quot;
+}</code></pre></div></div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -152,6 +164,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -166,18 +179,31 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Valores customizáveis que são preenchidos no Movidesk</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">{
+ &amp;quot;snFixedAnygrid&amp;quot;: &amp;quot;EOAC909003&amp;quot;,
+ &amp;quot;snDamaged&amp;quot;: &amp;quot;YIDAA42003&amp;quot;,
+ &amp;quot;dateIngressIntoStock&amp;quot;: &amp;quot;2022-12-08T12:59:48.203Z&amp;quot;
+}</code></pre>
+                        </div>
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>    <code>Ticket.Return</code>
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>Um objeto somente com os valores desejados para realizar a operação de updateOSS</p>
+
                     </div>
                 </td>
             </tr>
@@ -208,10 +234,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/modules/shared/utils/implementations/ticket.util.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/modules/shared/utils/implementations/ticket.util.ts:13</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Instanciando um logger</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -224,10 +256,28 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Logger } from &#x27;@nestjs/common&#x27;;
 import { ITicketUtil } from &#x27;../interfaces/iticket.util&#x27;;
 
+/**
+ * Provedor de serviços para o Ticket
+ * @decorator &#x60;@Injectable()&#x60;
+ */
 @Injectable()
 export class TicketUtil implements ITicketUtil {
+  /**
+   * Instanciando um logger
+   */
   protected logger &#x3D; new Logger(TicketUtil.name);
 
+  /**
+   *
+   * @param customFieldValues Valores customizáveis que são preenchidos no Movidesk
+   * @returns Um objeto somente com os valores desejados para realizar a operação de updateOSS
+   * @example
+   * {
+   *  &quot;snFixedAnygrid&quot;: &quot;EOAC909003&quot;,
+   *  &quot;snDamaged&quot;: &quot;YIDAA42003&quot;,
+   *  &quot;dateIngressIntoStock&quot;: &quot;2022-12-08T12:59:48.203Z&quot;
+   * }
+   */
   findFields(customFieldValues: Movidesk.CustomFieldValue[]): Ticket.Return {
     let obj: object &#x3D; {};
     let fieldFound: object &#x3D; [];

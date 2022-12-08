@@ -66,6 +66,16 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p><strong>DTO para os dados do update do serviço da V1</strong></p>
+<div><pre class="line-numbers"><code class="language-html">newSerialNumber: string;
+oldSerialNumber: string;
+time: string;
+}</code></pre></div>
+            </p>
 
 
 
@@ -138,10 +148,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/modules/update/dtos/update_oss.dto.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/modules/update/dtos/update_oss.dto.ts:27</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Serial Number Novo</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -173,10 +189,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/modules/update/dtos/update_oss.dto.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/modules/update/dtos/update_oss.dto.ts:38</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Serial Number Antigo</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -208,10 +230,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/modules/update/dtos/update_oss.dto.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/modules/update/dtos/update_oss.dto.ts:49</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Data no formato ISO</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -230,17 +258,48 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 import { IsDateString, IsNotEmpty, IsString } from &#x27;class-validator&#x27;;
 
+/**
+ * **DTO para os dados do update do serviço da V1**
+ *
+ * @remark Validação dos dados da requisição
+ *
+ * @returns Retorna o json transformado em um objeto
+ *
+ * @example {
+ * newSerialNumber: string;
+ * oldSerialNumber: string;
+ * time: string;
+ * }
+ */
 export class UpdateOSSDTO {
+  /**
+   * Serial Number Novo
+   * @decorator &#x60;@ApiProperty()&#x60;
+   * @decorator &#x60;@IsString()&#x60;
+   * @decorator &#x60;@IsNotEmpty()&#x60;
+   */
   @ApiProperty()
   @IsString()
   @IsNotEmpty()
   newSerialNumber: string;
 
+  /**
+   * Serial Number Antigo
+   * @decorator &#x60;@ApiProperty()&#x60;
+   * @decorator &#x60;@IsString()&#x60;
+   * @decorator &#x60;@IsNotEmpty()&#x60;
+   */
   @ApiProperty()
   @IsString()
   @IsNotEmpty()
   oldSerialNumber: string;
 
+  /**
+   * Data no formato ISO
+   * @decorator &#x60;@ApiProperty()&#x60;
+   * @decorator &#x60;@IsString()&#x60;
+   * @decorator &#x60;@IsNotEmpty()&#x60;
+   */
   @ApiProperty()
   @IsDateString()
   @IsNotEmpty()

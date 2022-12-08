@@ -1,10 +1,28 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { ITicketUtil } from '../interfaces/iticket.util';
 
+/**
+ * Provedor de serviços para o Ticket
+ * @decorator `@Injectable()`
+ */
 @Injectable()
 export class TicketUtil implements ITicketUtil {
+  /**
+   * Instanciando um logger
+   */
   protected logger = new Logger(TicketUtil.name);
 
+  /**
+   *
+   * @param customFieldValues Valores customizáveis que são preenchidos no Movidesk
+   * @returns Um objeto somente com os valores desejados para realizar a operação de updateOSS
+   * @example
+   * {
+   *  "snFixedAnygrid": "EOAC909003",
+   *  "snDamaged": "YIDAA42003",
+   *  "dateIngressIntoStock": "2022-12-08T12:59:48.203Z"
+   * }
+   */
   findFields(customFieldValues: Movidesk.CustomFieldValue[]): Ticket.Return {
     let obj: object = {};
     let fieldFound: object = [];

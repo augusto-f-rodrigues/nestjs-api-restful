@@ -11,6 +11,9 @@ import { UpdateOSSDTO } from '../dtos/update_oss.dto';
 import { UpdateOSSService } from '../services/update_oss.service';
 import { UpdateV2Service } from '../services/update_v2.service';
 
+/**
+ * **Controller do Update**
+ */
 @Controller('update')
 export class UpdateController {
   constructor(
@@ -19,7 +22,7 @@ export class UpdateController {
   ) {}
 
   /**
-   * **Rota de Atualização do Update OSS**
+   * **Rota V1 de Atualização do Update OSS**
    * @param data
    * @returns
    */
@@ -31,6 +34,11 @@ export class UpdateController {
     return await this.updateOSSService.execute(data);
   }
 
+  /**
+   * **Rota V2 de Atualização do Update OSS**
+   * @param id - Identificador do ticket
+   * @returns
+   */
   @Version('2')
   @HttpCode(200)
   @ApiTags('Update')

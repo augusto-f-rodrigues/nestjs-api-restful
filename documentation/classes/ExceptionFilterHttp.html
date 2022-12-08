@@ -66,6 +66,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Decorator que marca que a classe será um filtro de exceções</p>
+
+            </p>
 
 
             <p class="comment">
@@ -134,12 +141,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/core/filter/exception_http.filter.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/core/filter/exception_http.filter.ts:24</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Construtor que busca os serviços providos da HttpAdapterHost</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -148,6 +157,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -162,6 +172,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>define como um objeto HttpAdapterHost que provém métodos get e set do HttpAdapter</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -197,10 +211,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/core/filter/exception_http.filter.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/core/filter/exception_http.filter.ts:24</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Instanciando uma classe com métodos HTTP</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -223,10 +243,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/core/filter/exception_http.filter.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/core/filter/exception_http.filter.ts:20</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Instanciando um logger</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -257,14 +283,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">src/core/filter/exception_http.filter.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/core/filter/exception_http.filter.ts:40</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Função de tratamento de exceções</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -275,6 +303,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -289,6 +318,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Parâmetro vindo do decorator &#39;@Catch&#39; para definir as exceções</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>host</td>
@@ -301,6 +334,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Provém métodos HTTP para verificação dos argumentos</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -338,15 +375,35 @@
 import { AbstractHttpAdapter, HttpAdapterHost } from &#x27;@nestjs/core&#x27;;
 import { HttpResponseException } from &#x27;../http/HttpException&#x27;;
 
+/**
+ * Decorator que marca que a classe será um filtro de exceções
+ * @decorator &#x60;@Catch()&#x60;
+ */
 @Catch()
 export class ExceptionFilterHttp implements ExceptionFilter {
+  /**
+   * Instanciando um logger
+   */
   protected logger &#x3D; new Logger(ExceptionFilterHttp.name);
+  /**
+   * Instanciando uma classe com métodos HTTP
+   */
   private httpAdapter: AbstractHttpAdapter;
 
+  /**
+   * Construtor que busca os serviços providos da HttpAdapterHost
+   * @param adapterHost define como um objeto HttpAdapterHost que provém métodos get e set do HttpAdapter
+   */
   constructor(private readonly adapterHost: HttpAdapterHost) {
     this.httpAdapter &#x3D; adapterHost.httpAdapter;
   }
 
+  /**
+   * Função de tratamento de exceções
+   * @param exception Parâmetro vindo do decorator &#x27;@Catch&#x27; para definir as exceções
+   * @param host Provém métodos HTTP para verificação dos argumentos
+   * @returns
+   */
   catch(exception: any, host: ArgumentsHost) {
     const contextHttp &#x3D; host.switchToHttp();
     const response &#x3D; contextHttp.getResponse();

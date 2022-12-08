@@ -62,6 +62,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Provedor de serviços da Growatt</p>
+
+            </p>
 
 
 
@@ -107,6 +114,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#getTicket" >getTicket</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateTicket" >updateTicket</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -130,12 +141,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/modules/shared/providers/http/http.movidesk.provider.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/modules/shared/providers/http/http.movidesk.provider.ts:26</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Construtor para pegar serviços do Axios</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -144,6 +157,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -158,6 +172,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Instanciando serviços http do Axios</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -195,14 +213,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">src/modules/shared/providers/http/http.movidesk.provider.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/modules/shared/providers/http/http.movidesk.provider.ts:39</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Método para pegar informações de um ticket específico</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -213,6 +233,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -227,6 +248,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Identificador do ticket do movidesk</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -238,7 +263,103 @@
 
                     </div>
                     <div class="io-description">
+                        <p>Um json com os dados do ticket</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateTicket"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>updateTicket</b></span>
+                        <a href="#updateTicket"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateTicket(customFieldValues: Movidesk.CustomFieldValue[], id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/modules/shared/providers/http/http.movidesk.provider.ts:62</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Função que atualiza/insere os dados no ticket do movidesk</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
                         
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>customFieldValues</td>
+                                    <td>
+                                            <code>Movidesk.CustomFieldValue[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Campos que serão inseridos no movidesk</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Identificador do ticket</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Resposta de sucesso caso consigo dar update no movidesk</p>
+
                     </div>
                 </td>
             </tr>
@@ -270,10 +391,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/modules/shared/providers/http/http.movidesk.provider.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/modules/shared/providers/http/http.movidesk.provider.ts:22</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>URL utilizada para fazer requisições ao movidesk</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -296,10 +423,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/modules/shared/providers/http/http.movidesk.provider.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/modules/shared/providers/http/http.movidesk.provider.ts:18</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Instanciando um logger</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -323,10 +456,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/modules/shared/providers/http/http.movidesk.provider.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/modules/shared/providers/http/http.movidesk.provider.ts:26</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Token utilizado para liberar as ações ao movidesk</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -344,14 +483,36 @@ import { MovideskConstant } from &#x27;../../constants/movidesk.constant&#x27;;
 import { config } from &#x27;dotenv&#x27;;
 config();
 
+/**
+ * Provedor de serviços da Growatt
+ * @decorator &#x60;@Injectable()&#x60;
+ */
 @Injectable()
 export class HttpMovideskProvider {
+  /**
+   * Instanciando um logger
+   */
   protected logger &#x3D; new Logger(HttpMovideskProvider.name);
+  /**
+   * URL utilizada para fazer requisições ao movidesk
+   */
   protected readonly base_url &#x3D; process.env.MOVIDESK_URL;
+  /**
+   * Token utilizado para liberar as ações ao movidesk
+   */
   protected readonly token &#x3D; process.env.MOVIDESK_TOKEN;
 
+  /**
+   * Construtor para pegar serviços do Axios
+   * @param httpService Instanciando serviços http do Axios
+   */
   constructor(private readonly httpService: HttpService) {}
 
+  /**
+   * Método para pegar informações de um ticket específico
+   * @param id Identificador do ticket do movidesk
+   * @returns Um json com os dados do ticket
+   */
   async getTicket(id: string): Promise&lt;Movidesk.TicketResponse&gt; {
     try {
       const { data } &#x3D; await lastValueFrom&lt;{ data: Movidesk.TicketResponse }&gt;(
@@ -365,6 +526,34 @@ export class HttpMovideskProvider {
       this.logger.debug(&#x27;data&#x27;, data);
       return data;
     } catch (error) {
+      throw new HttpResponseException(error);
+    }
+  }
+
+  /**
+   * Função que atualiza/insere os dados no ticket do movidesk
+   * @param customFieldValues Campos que serão inseridos no movidesk
+   * @param id Identificador do ticket
+   * @returns Resposta de sucesso caso consigo dar update no movidesk
+   */
+  async updateTicket(
+    customFieldValues: Movidesk.CustomFieldValue[],
+    id: string,
+  ) {
+    try {
+      const response &#x3D; await lastValueFrom(
+        this.httpService.patch(
+          this.base_url +
+            MovideskConstant.TICKETS +
+            &#x60;?token&#x3D;${this.token}&#x60; +
+            &#x60;&amp;id&#x3D;${id}&#x60;,
+          { customFieldValues: customFieldValues },
+        ),
+      );
+      this.logger.debug(&#x27;Update Ticket Response:&#x27;, response);
+      return response;
+    } catch (error) {
+      this.logger.error(error)
       throw new HttpResponseException(error);
     }
   }

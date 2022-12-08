@@ -7,6 +7,9 @@ import { useContainer } from 'class-validator';
 import { ValidationPipe, VersioningType } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
+/**
+ * Função main onde inicia o programa
+ */
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 

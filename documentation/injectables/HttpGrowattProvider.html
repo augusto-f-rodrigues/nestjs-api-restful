@@ -62,6 +62,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Provedor de serviços da Growatt</p>
+
+            </p>
 
 
 
@@ -81,6 +88,10 @@
                                     <span class="modifier">Protected</span>
                                     <span class="modifier">Readonly</span>
                                 <a href="#base_url" >base_url</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#logger" >logger</a>
                             </li>
                         </ul>
                     </td>
@@ -125,12 +136,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/modules/shared/providers/http/http.growatt.provider.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/modules/shared/providers/http/http.growatt.provider.ts:24</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Construtor para pegar serviços do Axios</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -139,6 +152,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -153,6 +167,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Instanciando serviços http do Axios</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -190,17 +208,37 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">src/modules/shared/providers/http/http.growatt.provider.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/modules/shared/providers/http/http.growatt.provider.ts:42</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Função de autenticação</p>
+<div><pre class="line-numbers"><code class="language-html">{
+result: number;
+msg: string;
+obj: string;
+}</code></pre></div></div>
 
+                    <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">{
+result: number;
+msg: string;
+obj: string;
+}</code></pre>
+                        </div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>    <code>Promise&lt;Growatt.AuthResponse&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Retorna um objeto onde nele há o token de autenticação</p>
 
                     </div>
                 </td>
@@ -229,14 +267,19 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">src/modules/shared/providers/http/http.growatt.provider.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/modules/shared/providers/http/http.growatt.provider.ts:66</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Função para fazer update dos dados no banco de dados dos chineses</p>
+<div><pre class="line-numbers"><code class="language-html">{
+result:0,
+msg:换机成功!
+}</code></pre></div></div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -247,6 +290,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -261,6 +305,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Novo número de série</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>oldSerialNumber</td>
@@ -273,6 +321,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Antigo número de série</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>time</td>
@@ -285,18 +337,30 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Data no padrão ISO</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">{
+result:0,
+msg:换机成功!
+}</code></pre>
+                        </div>
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>    <code>Promise&lt;Growatt.UpdateOSSResponse&gt;</code>
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>Um objeto de resposta da API chinesa</p>
+
                     </div>
                 </td>
             </tr>
@@ -328,10 +392,48 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/modules/shared/providers/http/http.growatt.provider.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/modules/shared/providers/http/http.growatt.provider.ts:24</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>URL utilizada para fazer requisições à growatt</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logger"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>logger</b></span>
+                        <a href="#logger"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Logger(HttpGrowattProvider.name)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/modules/shared/providers/http/http.growatt.provider.ts:20</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Instanciando um logger</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -342,7 +444,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpService } from &#x27;@nestjs/axios&#x27;;
-import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { Injectable, Logger } from &#x27;@nestjs/common&#x27;;
 import { lastValueFrom } from &#x27;rxjs&#x27;;
 import { IGrowatt } from &#x27;../interfaces/igrowatt&#x27;;
 import { GrowattConstant } from &#x27;../../constants/growatt.constant&#x27;;
@@ -351,12 +453,37 @@ import { config } from &#x27;dotenv&#x27;;
 import { HttpResponseException } from &#x27;src/core/http/HttpException&#x27;;
 config();
 
+/**
+ * Provedor de serviços da Growatt
+ * @decorator &#x60;@Injectable()&#x60;
+ */
 @Injectable()
 export class HttpGrowattProvider implements IGrowatt {
+  /**
+   * Instanciando um logger
+   */
+  protected logger &#x3D; new Logger(HttpGrowattProvider.name);
+  /**
+   * URL utilizada para fazer requisições à growatt
+   */
   protected readonly base_url &#x3D; process.env.GROWATT_URL;
 
+  /**
+   * Construtor para pegar serviços do Axios
+   * @param httpService Instanciando serviços http do Axios
+   */
   constructor(private readonly httpService: HttpService) {}
 
+  /**
+   * Função de autenticação
+   * @returns Retorna um objeto onde nele há o token de autenticação
+   * @example
+   * {
+   * result: number;
+   * msg: string;
+   * obj: string;
+   * }
+   */
   async authenticate(): Promise&lt;Growatt.AuthResponse&gt; {
     try {
       const { data } &#x3D; await lastValueFrom&lt;{ data: Growatt.AuthResponse }&gt;(
@@ -368,11 +495,25 @@ export class HttpGrowattProvider implements IGrowatt {
     }
   }
 
+  /**
+   * Função para fazer update dos dados no banco de dados dos chineses
+   * @param newSerialNumber Novo número de série
+   * @param oldSerialNumber Antigo número de série
+   * @param time Data no padrão ISO
+   * @returns Um objeto de resposta da API chinesa
+   * @example
+   * {
+   * result:0,
+   * msg:换机成功!
+   * }
+   * @remark Obtenha o código de falha de retorno na descrição da falha na página inicial
+   */
   async updateOSS(
     newSerialNumber: string,
     oldSerialNumber: string,
     time: string,
   ): Promise&lt;Growatt.UpdateOSSResponse&gt; {
+    this.logger.debug(&#x27;Resquest&#x27;, { newSerialNumber, oldSerialNumber, time });
     try {
       const { obj } &#x3D; await this.authenticate();
       const { data } &#x3D; await lastValueFrom&lt;{ data: Growatt.UpdateOSSResponse }&gt;(

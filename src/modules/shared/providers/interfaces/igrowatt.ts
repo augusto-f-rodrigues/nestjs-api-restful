@@ -1,3 +1,6 @@
+/**
+ * **Interface para o Movidesk**
+ */
 export interface IGrowatt {
   /**
    *
@@ -26,7 +29,7 @@ export interface IGrowatt {
    * @param oldSerialNumber - Antigo número de série
    * @param time - Data de substituição
    *
-   * @returns Está função temo como retorno o resultado da operação.
+   * @returns Está função tem como retorno o resultado da operação.
    * @example
    * {
    * "result":0,
